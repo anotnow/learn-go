@@ -14,15 +14,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+      - name: clone code
+        run: git clone http://192.168.124.86:3000/learn/learn-action.git
+        run: cd learn-action
 
-    - name: Set up Go
-      uses: actions/setup-go@v4
-      with:
-        go-version: '1.22.6'
+      - name: Build
+        run: go build -v ./main.go
 
-    - name: Build
-      run: go build -v ./main.go
-
-    - name: Test
-      run: go test -v ./main.go
+      - name: Test
+        run: go test -v ./main.go
