@@ -12,11 +12,12 @@ on:
 jobs:
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: linux_amd64
     steps:
       - name: clone code
-        run: git clone http://192.168.124.86:3000/learn/learn-action.git
-        run: cd learn-action
+        run: |
+          git clone http://192.168.124.86:3000/learn/learn-action.git
+          cd learn-action
 
       - name: Build
         run: go build -v ./main.go
