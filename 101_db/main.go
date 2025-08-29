@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"log"
 
+	"example/db/orm"
+
 	_ "github.com/mattn/go-sqlite3"
 )
 
@@ -108,11 +110,19 @@ func demo_sqlite_update() {
 	}
 }
 
-func main() {
+func DbDemo() {
 	// db := demo_sqlite_conn()
 	// db.Close()
 	// demo_sqlite_create()
 	// demo_sqlite_insert()
 	demo_sqlite_update()
 	demo_sqlite_query()
+}
+
+func OrmDemo() {
+
+}
+
+func main() {
+	orm.GetDB()
 }
